@@ -1,9 +1,3 @@
-databases:
-  - name: controlegastos-db
-    plan: free
-    databaseName: controlegastos
-    user: controlegastos
-
 services:
   - type: web
     name: controlegastos-api
@@ -16,9 +10,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.12.10
       - key: DATABASE_URL
-        fromDatabase:
-          name: controlegastos-db
-          property: connectionString
+        sync: false # colar a connection string do Neon no painel
       - key: ControleGastos_CORS
         value: https://controlegastos-web.onrender.com
 
