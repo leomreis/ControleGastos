@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Porta do backend (uvicorn), não a do Vite (5173)
 const API = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
@@ -8,14 +8,6 @@ function FormCategorias({ aoCadastrar }) {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const style_inputs = "cursor-pointer border rounded-xl px-1 py-1 bg-white";
-
-  // Lista de categorias vinda do banco, para preencher o <select>
-
-  // Roda uma vez quando a tela abre: GET /categorias
-  useEffect(() => {
-    fetch(`${API}/categorias`)
-      .then((r) => r.json())
-  }, []);
 
   async function salvarCategoria(e) {
     e.preventDefault(); // impede o navegador de recarregar a página

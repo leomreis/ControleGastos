@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { moeda } from "./moeda.js";
 
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL ?? import.meta.env.VITE_API_URL ?? "http://localhost:8000";
 
 /* .then faz o fetch dos gastos e atualiza o estado e fetch significa buscar dados */
 
